@@ -6,10 +6,12 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
+    "serve": "npx serve ./build/client",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.14",
+    "@radix-ui/react-navigation-menu": "^1.2.13",
     "@radix-ui/react-slot": "^1.2.3",
     "@react-router/fs-routes": "^7.7.1",
     "@react-router/node": "^7.7.1",

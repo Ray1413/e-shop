@@ -1,7 +1,5 @@
 import React from "react";
 
-function Route() {
+export default function Index() {
   return <div>Index</div>;
 }
-
-export default Route;

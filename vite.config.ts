@@ -8,6 +8,7 @@ import path from "node:path";
 export default defineConfig({
   optimizeDeps: {
     include: [
+      "lucide-react",
       "class-variance-authority",
       "clsx",
       "tailwind-merge",

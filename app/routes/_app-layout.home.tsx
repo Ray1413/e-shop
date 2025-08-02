@@ -1,4 +1,5 @@
-import type { Route } from "./+types/home";
+import type { Route } from "./+types/_app-layout.home";
+
 import { Button } from "@/components/shadcn/ui/button";
 import {
   AlertDialog,
@@ -19,7 +20,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Route() {
+export default function Home() {
   return (
     <>
       <div>
