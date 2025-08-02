@@ -8,6 +8,8 @@ import path from "node:path";
 export default defineConfig({
   optimizeDeps: {
     include: [
+      "embla-carousel-autoplay",
+      "embla-carousel-react",
       "lucide-react",
       "class-variance-authority",
       "clsx",

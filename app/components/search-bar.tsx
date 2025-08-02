@@ -10,7 +10,7 @@ export default function SearchBar() {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get("keyword");
-  console.log("keyword", keyword);
+  // console.log("keyword", keyword);
 
   const inputRef = React.useRef<HTMLInputElement>(null);
   React.useEffect(() => {
@@ -22,9 +22,9 @@ export default function SearchBar() {
   const matchedNavItem = navItems.find((item) => item.href === pathMatch?.pathnameBase);
 
   return (
-    <div className={`${matchedNavItem?.bgColor || ""}`}>
-      <div className={`w-4xl p-4 mx-auto`}>
-        <div className="relative w-md bg-white">
+    <div className={`${matchedNavItem?.bgColor || ""} shadow-lg`}>
+      <div className={`w-full max-w-4xl p-4 mx-auto`}>
+        <div className="relative max-w-md bg-white">
           <SearchIcon className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             ref={inputRef}

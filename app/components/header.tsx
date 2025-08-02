@@ -13,25 +13,26 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/shadcn/ui/navigation-menu";
 import SearchBar from "./search-bar";
+import Banner from "./banner";
 
 const defaultActiveClassName = "bg-accent";
 const defaultClassName = "hover:bg-accent";
 
 export const navItems = [
-  {
-    href: "/",
-    label: "Index",
-    bgColor: "bg-lime-400",
-    activeClassName: "text-lime-900 bg-lime-400",
-    className: "hover:text-lime-900 hover:bg-lime-400",
-  },
-  {
-    href: "/home",
-    label: "Home",
-    bgColor: "bg-lime-400",
-    activeClassName: "text-lime-900 bg-lime-400",
-    className: "hover:text-lime-900 hover:bg-lime-400",
-  },
+  // {
+  //   href: "/",
+  //   label: "Index",
+  //   bgColor: "bg-lime-400",
+  //   activeClassName: "text-lime-900 bg-lime-400",
+  //   className: "hover:text-lime-900 hover:bg-lime-400",
+  // },
+  // {
+  //   href: "/home",
+  //   label: "Home",
+  //   bgColor: "bg-lime-400",
+  //   activeClassName: "text-lime-900 bg-lime-400",
+  //   className: "hover:text-lime-900 hover:bg-lime-400",
+  // },
   {
     id: 1,
     href: "/supermarket",
@@ -85,7 +86,7 @@ export const navItems = [
 export default function Header() {
   return (
     <div>
-      <div className="w-6xl mx-auto border-x-0 border-amber-200">
+      <div className="w-full max-w-6xl mx-auto border-x-0 border-amber-200">
         <div className="p-6">
           <p className="text-center font-bold text-inherit text-4xl">
             <span className="text-green-700">Demo </span>
@@ -119,6 +120,7 @@ export default function Header() {
       </div>
       <div>
         <SearchBar />
+        <Banner />
       </div>
     </div>
   );
