@@ -104,7 +104,9 @@ export default function Header() {
                       className={({ isActive, isPending, isTransitioning }) =>
                         [
                           isPending ? "opacity-90" : "",
-                          isActive ? `${item.activeClassName || defaultActiveClassName}` : "",
+                          isActive
+                            ? `${item.activeClassName || defaultActiveClassName} shadow-[0px_0px_2px_rgb(0,0,0,0.25)]`
+                            : "hover:shadow-[0px_0px_2px_rgb(0,0,0,0.25)]",
                           isTransitioning ? "" : "",
                         ].join(" ") + ` p-2 font-semibold ${item.className || defaultClassName}`
                       }
