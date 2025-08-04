@@ -19,8 +19,6 @@ import b7URL from "@/assets/banner-7.jpg";
 import b8URL from "@/assets/banner-8.jpg";
 import b9URL from "@/assets/banner-9.jpg";
 
-const urlList = [b0URL, b1URL, b2URL, b3URL, b4URL, b5URL, b6URL, b7URL, b8URL, b9URL];
-
 const bannerList = [
   { url: b0URL, bgColor: "rgb(124, 188, 211)" },
   { url: b1URL, bgColor: "rgb(235, 229, 224)" },
@@ -60,7 +58,7 @@ export default function Banner() {
       ></div>
       <Carousel
         setApi={setApi}
-        className="w-full max-w-5xl mx-auto"
+        className="w-full max-w-6xl mx-auto"
         plugins={[
           Autoplay({
             delay: 5000,
@@ -71,7 +69,7 @@ export default function Banner() {
           {bannerList.map((banner, index) => (
             <CarouselItem key={index}>
               <div>
-                <img src={banner.url} />
+                <img src={banner.url} className="w-full" />
               </div>
             </CarouselItem>
           ))}
