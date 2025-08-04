@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Zone {
+  id        Int      @id @default(autoincrement())
+  name      String
+  key       String
+  url       String   @unique
+  isDelete  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id         Int      @id @default(autoincrement())
+  name       String
+  code       String   @unique
+  parentCode String
+  level      Int
+  url        String
+  count      Int
+  isDelete   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Product {
+  id                Int      @id @default(autoincrement())
+  code              String   @unique
+  name              String
+  productUrl        String
+  primaryCatCode    String
+  price             Decimal
+  summary           String
+  imageUrl          String
+  brandName         String
+  averageRating     Float
+  numberOfReviews   Int
+  salesNumberString String
+  storeName         String
+  isDelete          Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
