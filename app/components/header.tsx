@@ -34,7 +34,7 @@ export const navItems = [
   //   className: "hover:text-lime-900 hover:bg-lime-400",
   // },
   {
-    id: 1,
+    id: "AA11000000000",
     href: "/supermarket",
     label: "Supermarket",
     bgColor: "bg-lime-400",
@@ -42,7 +42,7 @@ export const navItems = [
     className: "hover:text-lime-900 hover:bg-lime-400",
   },
   {
-    id: 3,
+    id: "AA16000000000",
     label: "Skincare & Makeup",
     href: "/skincare-and-makeup",
     bgColor: "bg-yellow-500",
@@ -50,7 +50,7 @@ export const navItems = [
     className: "hover:text-yellow-900 hover:bg-yellow-500",
   },
   {
-    id: 9,
+    id: "AA31000000000",
     href: "/gadgets-and-electronics",
     label: "Gadgets & Electronics",
     bgColor: "bg-blue-400",
@@ -58,7 +58,7 @@ export const navItems = [
     className: "hover:text-blue-900 hover:bg-blue-400",
   },
   {
-    id: 10,
+    id: "AA32000000000",
     label: "Home Appliances",
     href: "/home-appliances",
     bgColor: "bg-cyan-300",
@@ -66,7 +66,7 @@ export const navItems = [
     className: "hover:text-cyan-900 hover:bg-cyan-300",
   },
   {
-    id: 4,
+    id: "AA18000000000",
     label: "Housewares",
     href: "/housewares",
     bgColor: "bg-yellow-300",
@@ -74,7 +74,7 @@ export const navItems = [
     className: "hover:text-yellow-900 hover:bg-yellow-300",
   },
   {
-    id: 12,
+    id: "AA73000000000",
     label: "Sports & Travel",
     href: "/sports-and-travel",
     bgColor: "bg-lime-300",
