@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "react-router";
-import { RefreshCw } from "lucide-react";
+import { LoaderCircle } from "lucide-react";
 
 export default function SideLoading() {
   const navigation = useNavigation();
@@ -9,7 +9,7 @@ export default function SideLoading() {
   if (!loading) return null;
   return (
     <div className="fixed z-50 p-2 animate-spin">
-      <RefreshCw />
+      <LoaderCircle className="text-blue-500" />
     </div>
   );
 }

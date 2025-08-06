@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NavLink } from "react-router";
+import { NavLink, useNavigation } from "react-router";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -84,6 +84,9 @@ export const navItems = [
 ];
 
 export default function Header() {
+  const navigation = useNavigation();
+  const isNavigating = navigation.state === "loading";
+
   return (
     <div>
       <div className="w-full max-w-6xl mx-auto border-x-0 border-amber-200">
@@ -103,12 +106,13 @@ export default function Header() {
                       to={item.href}
                       className={({ isActive, isPending, isTransitioning }) =>
                         [
-                          isPending ? "opacity-90" : "",
-                          isActive
+                          isPending ? "opacity-80" : "",
+                          (!isNavigating && isActive) || (isNavigating && isPending)
                             ? `${item.activeClassName || defaultActiveClassName} shadow-[0px_0px_2px_rgb(0,0,0,0.25)]`
                             : "hover:shadow-[0px_0px_2px_rgb(0,0,0,0.25)]",
                           isTransitioning ? "" : "",
-                        ].join(" ") + ` p-2 font-semibold ${item.className || defaultClassName}`
+                        ].join(" ") +
+                        ` p-2 font-semibold ${item.className || defaultClassName} transition-opacity`
                       }
                     >
                       {item.label}

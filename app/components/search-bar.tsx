@@ -1,12 +1,15 @@
 import React from "react";
-import { useMatch, useSearchParams } from "react-router";
+import { matchPath, useMatch, useNavigation, useSearchParams } from "react-router";
 import { navItems } from "./header";
 import { Input } from "./shadcn/ui/input";
 import { SearchIcon, X } from "lucide-react";
 import { Button } from "./shadcn/ui/button";
 
 export default function SearchBar() {
-  const pathMatch = useMatch("/:firstSegment/*");
+  const navigation = useNavigation();
+  const navigating = navigation.state === "loading";
+  const pathInfoNavigating = matchPath("/:firstSegment/*", navigation.location?.pathname || "");
+  const pathInfo = useMatch("/:firstSegment/*");
 
   const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get("keyword");
@@ -19,7 +22,9 @@ export default function SearchBar() {
     }
   }, [keyword]);
 
-  const matchedNavItem = navItems.find((item) => item.href === pathMatch?.pathnameBase);
+  const matchedNavItem = navItems.find(
+    (item) => item.href === (navigating ? pathInfoNavigating : pathInfo)?.pathnameBase,
+  );
 
   return (
     <div className={`${matchedNavItem?.bgColor || ""} relative z-10 shadow-md`}>
