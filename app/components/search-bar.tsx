@@ -38,12 +38,15 @@ export default function SearchBar() {
             className="pl-8 pr-8 rounded-none"
             onKeyDown={(event) => {
               if (event.code === "Enter" && event.target instanceof HTMLInputElement) {
-                setSearchParams((searchParams) => {
-                  if (event.target instanceof HTMLInputElement) {
-                    searchParams.set("keyword", event.target.value);
-                  }
-                  return searchParams;
-                });
+                setSearchParams(
+                  (searchParams) => {
+                    if (event.target instanceof HTMLInputElement) {
+                      searchParams.set("keyword", event.target.value);
+                    }
+                    return searchParams;
+                  },
+                  { preventScrollReset: true },
+                );
                 event.target.blur();
               }
             }}

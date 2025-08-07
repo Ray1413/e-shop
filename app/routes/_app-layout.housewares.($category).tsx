@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Housewares() {
-  return <div></div>;
+export default function HousewaresCategory() {
+  return <div>HousewaresCategory</div>;
 }

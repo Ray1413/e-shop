@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function SportsAndTravel() {
-  return <div></div>;
+export default function SportsAndTravelCategory() {
+  return <div>SportsAndTravelCategory</div>;
 }

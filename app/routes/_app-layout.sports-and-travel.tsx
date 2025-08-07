@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, useLoaderData, type ShouldRevalidateFunctionArgs } from "react-router";
-import type { Route } from "./+types/_app-layout.supermarket";
+import type { Route } from "./+types/_app-layout.sports-and-travel";
 import { CategoryPanel, ProductArea } from "@/components/product";
 import {
   categoryTreeLoader,
@@ -20,7 +20,7 @@ export function shouldRevalidate(arg: ShouldRevalidateFunctionArgs) {
   return shouldCategoryTreeLoaderRevalidate(arg);
 }
 
-export default function Supermarket() {
+export default function SportsAndTravel() {
   const loaderData = useLoaderData<Loader>();
 
   return (

@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function GadgetsAndElectronics() {
-  return <div></div>;
+export default function GadgetsAndElectronicsCategory() {
+  return <div>GadgetsAndElectronicsCategory</div>;
 }
