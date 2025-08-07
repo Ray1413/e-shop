@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 
-import SideLoading from "./components/product/side-loading";
+import SideLoading from "@/components/side-loading";
 
 import type { Route } from "./+types/root";
 import "./app.css";
