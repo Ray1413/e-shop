@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, useLoaderData, type ShouldRevalidateFunctionArgs } from "react-router";
 import type { Route } from "./+types/_app-layout.supermarket";
-import { CategoryPanel, ProductArea } from "@/components/product";
+import { CategoryBreadcrumb, CategoryPanel, ProductArea } from "@/components/product";
 import {
   categoryTreeLoader,
   shouldCategoryTreeLoaderRevalidate,
@@ -27,6 +27,7 @@ export default function Supermarket() {
     <div>
       <ProductArea
         categoryPanel={<CategoryPanel categoryTree={loaderData.categoryTree} />}
+        categoryBreadcrumb={<CategoryBreadcrumb categoryTree={loaderData.categoryTree} />}
         productList={<Outlet />}
       />
     </div>

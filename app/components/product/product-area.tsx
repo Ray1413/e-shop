@@ -1,11 +1,12 @@
 import React from "react";
-import CategoryBreadcrumb from "./category-breadcrumb";
 
 export default function ProductArea({
   categoryPanel,
+  categoryBreadcrumb,
   productList,
 }: {
   categoryPanel: React.ReactNode;
+  categoryBreadcrumb: React.ReactNode;
   productList?: React.ReactNode;
 }) {
   return (
@@ -14,7 +15,7 @@ export default function ProductArea({
       <div className="flex gap-6">
         <div className="w-64 bg-gray-50">{categoryPanel}</div>
         <div className="bg-blue-200 grow-1">
-          <CategoryBreadcrumb />
+          {categoryBreadcrumb}
           {productList}
         </div>
       </div>
