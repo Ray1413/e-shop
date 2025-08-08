@@ -13,7 +13,7 @@ export async function categoryTreeLoader(request: Request) {
     categoryTree = await getCategoryTree(mainCategoryCode, pathInfo?.params.category);
   }
 
-  await new Promise((res) => setTimeout(res, 2000));
+  // await new Promise((res) => setTimeout(res, 2000));
   return categoryTree;
 }
 
