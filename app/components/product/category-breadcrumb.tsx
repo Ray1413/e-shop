@@ -9,6 +9,7 @@ import {
 } from "@/components/shadcn/ui/breadcrumb";
 import { useMatch, useSearchParams } from "react-router";
 import type { CategoryTreeItem } from "@/lib/schema/category.schema";
+import { navItems } from "@/components/header";
 
 const flattenCategoryTree = (categoryTree: CategoryTreeItem[]) => {
   return categoryTree.reduce(
@@ -41,14 +42,20 @@ export default function CategoryBreadcrumb({ categoryTree }: { categoryTree: Cat
   const searchKeyword = searchParams.get("keyword");
 
   const flatCategoryTree = flattenCategoryTree(categoryTree);
-  const currentCategory = pathInfo?.params.category
-    ? flatCategoryTree.find((item) => item.code === pathInfo?.params.category)
+
+  const categoryCode =
+    pathInfo?.params.category ||
+    navItems.find((item) => item.href === `/${pathInfo?.params.firstSegment}`)?.id;
+
+  const currentCategory = categoryCode
+    ? flatCategoryTree.find((item) => item.code === categoryCode)
     : undefined;
+
   const breadcrumbList = getBreadcrumbList(flatCategoryTree, currentCategory);
 
   return (
     <div className="py-1">
-      {breadcrumbList.length > 1 ? (
+      {breadcrumbList.length > 0 ? (
         <Breadcrumb>
           <BreadcrumbList className="text-base">
             {breadcrumbList.flatMap((item, index, arr) => {
