@@ -45,7 +45,7 @@ export default function CategoryBreadcrumb({ categoryTree }: { categoryTree: Cat
 
   const categoryCode =
     pathInfo?.params.category ||
-    navItems.find((item) => item.href === `/${pathInfo?.params.firstSegment}`)?.id;
+    navItems.find((item) => item.href.startsWith("/" + pathInfo?.params.firstSegment))?.id;
 
   const currentCategory = categoryCode
     ? flatCategoryTree.find((item) => item.code === categoryCode)

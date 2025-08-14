@@ -5,12 +5,14 @@ import { useNProgress } from "@tanem/react-nprogress";
 
 export default function Progress({
   isAnimating,
-  animationDuration = 200,
-  incrementDuration = 200,
+  animationDuration = 300,
+  incrementDuration = 300,
+  minimum = 0.35,
 }: {
   isAnimating: boolean;
   animationDuration?: number;
   incrementDuration?: number;
+  minimum?: number;
 }) {
   const {
     animationDuration: duration,
@@ -20,6 +22,7 @@ export default function Progress({
     isAnimating,
     animationDuration,
     incrementDuration,
+    minimum,
   });
 
   return (

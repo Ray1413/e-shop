@@ -3,14 +3,9 @@ import React from "react";
 import { NavLink, useNavigation } from "react-router";
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-  navigationMenuTriggerStyle,
 } from "@/components/shadcn/ui/navigation-menu";
 import SearchBar from "./search-bar";
 import Banner from "./banner";
@@ -19,20 +14,6 @@ const defaultActiveClassName = "bg-accent";
 const defaultClassName = "hover:bg-accent";
 
 export const navItems = [
-  // {
-  //   href: "/",
-  //   label: "Index",
-  //   bgColor: "bg-lime-400",
-  //   activeClassName: "text-lime-900 bg-lime-400",
-  //   className: "hover:text-lime-900 hover:bg-lime-400",
-  // },
-  // {
-  //   href: "/home",
-  //   label: "Home",
-  //   bgColor: "bg-lime-400",
-  //   activeClassName: "text-lime-900 bg-lime-400",
-  //   className: "hover:text-lime-900 hover:bg-lime-400",
-  // },
   {
     id: "AA11000000000",
     href: "/supermarket",
@@ -88,46 +69,48 @@ export default function Header() {
   const isNavigating = navigation.state === "loading";
 
   return (
-    <div>
-      <div className="w-full max-w-6xl mx-auto border-x-0 border-amber-200">
-        <div className="p-6">
-          <p className="text-center font-bold text-inherit text-4xl">
-            <span className="text-green-700">Demo </span>
-            <span className="text-lime-500">Mall</span>
-          </p>
-        </div>
-        <NavigationMenu className="mx-auto">
-          <NavigationMenuList className="gap-0">
-            {navItems.map((item, index) => (
-              <NavigationMenuItem key={index}>
-                <NavigationMenuLink asChild className="rounded-none p-0">
-                  <div>
-                    <NavLink
-                      to={item.href}
-                      className={({ isActive, isPending, isTransitioning }) =>
-                        [
-                          isPending ? "opacity-80" : "",
-                          (!isNavigating && isActive) || (isNavigating && isPending)
-                            ? `${item.activeClassName || defaultActiveClassName} shadow-[0px_0px_2px_rgb(0,0,0,0.25)]`
-                            : "hover:shadow-[0px_0px_2px_rgb(0,0,0,0.25)]",
-                          isTransitioning ? "" : "",
-                        ].join(" ") +
-                        ` p-2 font-semibold ${item.className || defaultClassName} transition-opacity`
-                      }
-                    >
-                      {item.label}
-                    </NavLink>
-                  </div>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
-      </div>
+    <>
       <div>
-        <SearchBar />
-        <Banner />
+        <div className="w-full max-w-6xl mx-auto border-x-0 border-amber-200">
+          <div className="p-6">
+            <p className="text-center font-bold text-inherit text-4xl">
+              <span className="text-green-700">Demo </span>
+              <span className="text-lime-500">Mall</span>
+            </p>
+          </div>
+          <NavigationMenu className="mx-auto">
+            <NavigationMenuList className="gap-0">
+              {navItems.map((item, index) => (
+                <NavigationMenuItem key={index}>
+                  <NavigationMenuLink asChild className="rounded-none p-0">
+                    <div>
+                      <NavLink
+                        to={item.href}
+                        className={({ isActive, isPending, isTransitioning }) =>
+                          [
+                            isPending ? "opacity-80" : "",
+                            (!isNavigating && isActive) || (isNavigating && isPending)
+                              ? `${item.activeClassName || defaultActiveClassName} shadow-[0px_0px_2px_rgb(0,0,0,0.25)]`
+                              : "hover:shadow-[0px_0px_2px_rgb(0,0,0,0.25)]",
+                            isTransitioning ? "" : "",
+                          ].join(" ") +
+                          ` p-2 font-semibold ${item.className || defaultClassName} transition-opacity`
+                        }
+                      >
+                        {item.label}
+                      </NavLink>
+                    </div>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
       </div>
-    </div>
+      <div className="sticky top-0 z-30">
+        <SearchBar />
+      </div>
+      <Banner />
+    </>
   );
 }

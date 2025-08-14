@@ -42,6 +42,7 @@ export default function SearchBar() {
                   (searchParams) => {
                     if (event.target instanceof HTMLInputElement) {
                       searchParams.set("keyword", event.target.value);
+                      searchParams.set("page", "1");
                     }
                     return searchParams;
                   },
@@ -56,11 +57,13 @@ export default function SearchBar() {
             size="icon"
             className="absolute right-1 top-1/2 p-1 -translate-y-1/2 size-6 rounded-full cursor-pointer"
             onClick={() => {
-              console.log("123");
-              setSearchParams((searchParams) => {
-                searchParams.delete("keyword");
-                return searchParams;
-              });
+              setSearchParams(
+                (searchParams) => {
+                  searchParams.delete("keyword");
+                  return searchParams;
+                },
+                { preventScrollReset: true },
+              );
             }}
           >
             <X />
