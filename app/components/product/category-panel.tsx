@@ -7,13 +7,13 @@ import {
   CollapsibleTrigger,
 } from "@/components/shadcn/ui/collapsible";
 import { Button } from "@/components/shadcn/ui/button";
-import { ChevronRightIcon, LoaderCircle } from "lucide-react";
+import { ChevronRightIcon } from "lucide-react";
 
 export default function CategoryPanel({ categoryTree }: { categoryTree: CategoryTreeItem[] }) {
   return (
-    <div className="overflow-y-auto">
+    <div className="overflow-x-auto">
       {categoryTree.map((item) => (
-        <Tree className={`-ml-6 w-max`} key={item.code} categoryTreeItem={item} />
+        <Tree className={`-ml-6 w-max`} isRoot key={item.code} categoryTreeItem={item} />
       ))}
     </div>
   );
@@ -21,9 +21,11 @@ export default function CategoryPanel({ categoryTree }: { categoryTree: Category
 
 export function Tree({
   className = "",
+  isRoot = false,
   categoryTreeItem,
 }: {
   className?: string;
+  isRoot?: boolean;
   categoryTreeItem: CategoryTreeItem;
 }) {
   const navigation = useNavigation();
@@ -35,7 +37,7 @@ export function Tree({
   if (hasChildren) {
     return (
       <Collapsible
-        className={`pl-6 [&[data-state=open]>div>button>svg:first-child]:rotate-90 ${className}`}
+        className={`${isRoot ? "" : "pl-6"} [&[data-state=open]>div>button>svg:first-child]:rotate-90 ${className}`}
         defaultOpen={categoryTreeItem.defaultOpen}
       >
         <div>
@@ -83,22 +85,11 @@ const CategoryNavLink = ({
             ? `text-blue-600`
             : "hover:text-blue-500",
           isTransitioning ? "" : "",
-          "relative",
+          "relative text-[15px]",
         ].join(" ")
       }
     >
-      {({ isPending }) => {
-        return (
-          <>
-            {content}
-            <span
-              className={`absolute bottom-0 size-4 pl-1 align-middle text-blue-500 transition-opacity duration-500 opacity-0 ${isPending ? "opacity-100" : ""}`}
-            >
-              <LoaderCircle className={`size-4 animate-spin ${isPending ? "" : "hidden"}`} />
-            </span>
-          </>
-        );
-      }}
+      {content}
     </NavLink>
   );
 };
