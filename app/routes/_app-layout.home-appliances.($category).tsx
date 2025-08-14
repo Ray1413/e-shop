@@ -1,5 +1,21 @@
 import React from "react";
+import type { Route } from "./+types/_app-layout.home-appliances.($category)";
+import productListLoader from "@/lib/loader/product-list.loader";
+import { ProductList } from "@/components/product";
 
-export default function HomeAppliancesCategory() {
-  return <div>HomeAppliancesCategory</div>;
+export async function loader({ request }: Route.LoaderArgs) {
+  const productData = await productListLoader(request);
+  return {
+    ...productData,
+  };
+}
+
+export type Loader = typeof loader;
+
+export default function HomeAppliancesCategory({ loaderData }: Route.ComponentProps) {
+  return (
+    <div>
+      <ProductList pagination={loaderData.pagination} list={loaderData.list} />
+    </div>
+  );
 }

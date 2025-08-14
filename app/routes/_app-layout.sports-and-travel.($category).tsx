@@ -1,5 +1,20 @@
 import React from "react";
+import type { Route } from "./+types/_app-layout.sports-and-travel.($category)";
+import productListLoader from "@/lib/loader/product-list.loader";
+import { ProductList } from "@/components/product";
 
-export default function SportsAndTravelCategory() {
-  return <div>SportsAndTravelCategory</div>;
+export async function loader({ request }: Route.LoaderArgs) {
+  const productData = await productListLoader(request);
+  return {
+    ...productData,
+  };
+}
+
+export type Loader = typeof loader;
+export default function SportsAndTravelCategory({ loaderData }: Route.ComponentProps) {
+  return (
+    <div>
+      <ProductList pagination={loaderData.pagination} list={loaderData.list} />
+    </div>
+  );
 }

@@ -28,7 +28,7 @@ export default function Housewares() {
       <ProductArea
         categoryPanel={<CategoryPanel categoryTree={loaderData.categoryTree} />}
         categoryBreadcrumb={<CategoryBreadcrumb categoryTree={loaderData.categoryTree} />}
-        productList={<Outlet />}
+        productContent={<Outlet />}
       />
     </div>
   );
