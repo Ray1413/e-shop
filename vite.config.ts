@@ -9,7 +9,7 @@ export default defineConfig({
   optimizeDeps: {
     include: [
       "@tanem/react-nprogress",
-      "@prisma/client",
+      "@generated-prisma/client",
       "embla-carousel-autoplay",
       "embla-carousel-react",
       "lucide-react",

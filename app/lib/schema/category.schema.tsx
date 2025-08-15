@@ -1,4 +1,4 @@
-import { type Category } from "@prisma/client";
+import type { Category } from "@generated-prisma/client";
 
 export type CategoryTreeItem = Pick<
   Category,

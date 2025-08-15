@@ -1,4 +1,4 @@
-import type { Product } from "@prisma/client";
+import type { Product } from "@generated-prisma/client";
 
 export type ProcuctItem = Pick<
   Product,

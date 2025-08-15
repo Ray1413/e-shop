@@ -1,5 +1,5 @@
 import prisma from "prisma/client";
-import { Prisma } from "@prisma/client";
+import type { Prisma } from "@generated-prisma/client";
 import { defaultPageSize } from "../loader/product-list.loader";
 
 export type ListRequest = {
