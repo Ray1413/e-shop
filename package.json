@@ -8,6 +8,7 @@
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "serve": "npx serve ./build/client",
+    "preview": "npm run build && npm run start",
     "typecheck": "react-router typegen && tsc",
     "db:generate": "prisma generate",
     "db:push": "prisma db push"
