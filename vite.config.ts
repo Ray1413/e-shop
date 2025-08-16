@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import fs from "node:fs";
 import path from "node:path";
+import fullVersionPlugin from "./vite-plugins/vite-plugin-full-version";
 
 export default defineConfig({
   optimizeDeps: {
@@ -20,5 +21,5 @@ export default defineConfig({
     ],
   },
 
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  plugins: [tailwindcss(), reactRouter(), tsconfigPaths(), fullVersionPlugin()],
 });
