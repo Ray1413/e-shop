@@ -1,6 +1,6 @@
 import React from "react";
 import type { Route } from "./+types/_app-layout.home-appliances.($category)";
-import productListLoader from "@/lib/loader/product-list.loader";
+import productListLoader from "@/lib/.server/loader/product-list.loader";
 import { ProductList } from "@/components/product";
 
 export async function loader({ request }: Route.LoaderArgs) {

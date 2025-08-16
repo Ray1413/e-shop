@@ -4,7 +4,7 @@ import { Button, buttonVariants } from "@/components/shadcn/ui/button";
 import { cn } from "@/components/shadcn/lib/utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { Link, useLocation, useNavigation, useSearchParams } from "react-router";
-import type { Pagination as PaginationType } from "@/lib/loader/product-list.loader";
+import type { Pagination as PaginationType } from "@/lib/.server/loader/product-list.loader";
 
 export default function PaginationBar({
   pagination,

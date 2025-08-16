@@ -1,7 +1,7 @@
 import React from "react";
 import { matchPath } from "react-router";
 import { navItems } from "@/components/header";
-import { getProductList } from "@/lib/service/product.service";
+import { getProductList } from "@/lib/.server/service/product.service";
 
 export type Pagination = {
   currentPage: number;

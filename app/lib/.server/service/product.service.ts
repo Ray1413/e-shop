@@ -1,6 +1,6 @@
-import prisma from "prisma/client";
+import prisma from "@/lib/.server/db/client";
 import type { Prisma } from "@generated-prisma/client";
-import { defaultPageSize } from "../loader/product-list.loader";
+import { defaultPageSize } from "@/lib/.server/loader/product-list.loader";
 
 export type ListRequest = {
   searchKeyword?: string;

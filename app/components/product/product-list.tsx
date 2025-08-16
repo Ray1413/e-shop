@@ -1,7 +1,7 @@
 import React from "react";
 import { Separator } from "@/components/shadcn/ui/separator";
 import PaginationBar from "@/components/pagination-bar";
-import type { Pagination } from "@/lib/loader/product-list.loader";
+import type { Pagination } from "@/lib/.server/loader/product-list.loader";
 import type { ProcuctItem } from "@/lib/schema/product.schema";
 import { Star, StarHalf } from "lucide-react";
 import { useNavigation } from "react-router";

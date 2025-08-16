@@ -1,6 +1,6 @@
 import type { Prisma } from "@generated-prisma/client";
-import prisma from "prisma/client";
-import type { CategoryTreeItem } from "../schema/category.schema";
+import prisma from "@/lib/.server/db/client";
+import type { CategoryTreeItem } from "@/lib/schema/category.schema";
 
 export const getCategoryTree = async (mainCategoryCode: string, subCategoryCode?: string) => {
   const whereInput: Prisma.CategoryWhereInput = {

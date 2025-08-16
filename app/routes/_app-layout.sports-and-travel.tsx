@@ -2,10 +2,8 @@ import React from "react";
 import { Outlet, useLoaderData, type ShouldRevalidateFunctionArgs } from "react-router";
 import type { Route } from "./+types/_app-layout.sports-and-travel";
 import { CategoryBreadcrumb, CategoryPanel, ProductArea } from "@/components/product";
-import {
-  categoryTreeLoader,
-  shouldCategoryTreeLoaderRevalidate,
-} from "@/lib/loader/categoryTree.loader";
+import { categoryTreeLoader } from "@/lib/.server/loader/categoryTree.loader";
+import { shouldCategoryTreeLoaderRevalidate } from "@/lib/utils/shouldCategoryTreeLoaderRevalidate";
 
 export async function loader({ request }: Route.LoaderArgs) {
   const categoryTree = await categoryTreeLoader(request);
