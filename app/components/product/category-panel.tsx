@@ -11,7 +11,7 @@ import { ChevronRightIcon } from "lucide-react";
 
 export default function CategoryPanel({ categoryTree }: { categoryTree: CategoryTreeItem[] }) {
   return (
-    <div className="min-h-dvh overflow-x-auto">
+    <div className="min-h-dvh overflow-x-auto bg-gray-50">
       {categoryTree.map((item) => (
         <Tree className={`-ml-6 w-max`} isRoot key={item.code} categoryTreeItem={item} />
       ))}

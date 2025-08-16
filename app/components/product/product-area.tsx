@@ -13,7 +13,7 @@ export default function ProductArea({
     <div className="w-full max-w-6xl mx-auto">
       <hr className="my-8" />
       <div className="flex gap-6">
-        <div className="w-56 min-w-56 bg-gray-50">{categoryPanel}</div>
+        <div className="w-56 min-w-56">{categoryPanel}</div>
         <div className="grow-1">
           {categoryBreadcrumb}
           {productContent}
