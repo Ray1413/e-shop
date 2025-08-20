@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "react-router";
-import Progress from "@/components/Progress";
+import Progress from "@/components/progress";
 
 export default function SideLoading() {
   const [key, setKey] = React.useState("");
