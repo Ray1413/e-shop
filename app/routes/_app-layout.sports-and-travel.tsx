@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, useLoaderData, type ShouldRevalidateFunctionArgs } from "react-router";
 import type { Route } from "./+types/_app-layout.sports-and-travel";
-import { CategoryBreadcrumb, CategoryPanel, ProductArea } from "@/components/product";
+import { ProductArea } from "@/components/product";
 import { categoryTreeLoader } from "@/lib/.server/loader/categoryTree.loader";
 import { shouldCategoryTreeLoaderRevalidate } from "@/lib/utils/shouldCategoryTreeLoaderRevalidate";
 
@@ -23,11 +23,7 @@ export default function SportsAndTravel() {
 
   return (
     <div>
-      <ProductArea
-        categoryPanel={<CategoryPanel categoryTree={loaderData.categoryTree} />}
-        categoryBreadcrumb={<CategoryBreadcrumb categoryTree={loaderData.categoryTree} />}
-        productContent={<Outlet />}
-      />
+      <ProductArea categoryTree={loaderData.categoryTree} productContent={<Outlet />} />
     </div>
   );
 }

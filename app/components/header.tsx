@@ -94,11 +94,11 @@ export default function Header() {
               <span className="text-lime-500">Mall</span>
             </p>
           </div>
-          <NavigationMenu className="mx-auto">
-            <NavigationMenuList className="gap-0">
+          <NavigationMenu className="mx-auto block overflow-auto">
+            <NavigationMenuList className="gap-0 w-max">
               {navItems.map((item, index) => (
                 <NavigationMenuItem key={index}>
-                  <NavigationMenuLink asChild className="rounded-none p-0">
+                  <NavigationMenuLink asChild className="rounded-none p-0 whitespace-nowrap">
                     <div>
                       <NavLink
                         to={item.href}

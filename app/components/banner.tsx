@@ -74,8 +74,11 @@ export default function Banner() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+
+        <div className="absolute w-full flex justify-center gap-6">
+          <CarouselPrevious className="static" />
+          <CarouselNext className="static" />
+        </div>
       </Carousel>
     </div>
   );

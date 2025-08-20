@@ -5,6 +5,7 @@ import type { Pagination } from "@/lib/.server/loader/product-list.loader";
 import type { ProcuctItem } from "@/lib/schema/product.schema";
 import { Star, StarHalf } from "lucide-react";
 import { useNavigation } from "react-router";
+import { cn } from "@/components/shadcn/lib/utils";
 
 export default function ProductList({
   pagination,
@@ -27,9 +28,9 @@ export default function ProductList({
         <>
           {list.length > 0 ? (
             <>
-              <div className="min-h-60 flex flex-wrap gap-4">
+              <div className="min-h-60 gap-4 grid grid-cols-1 min-[370px]:grid-cols-2 min-[560px]:grid-cols-3 min-[990px]:grid-cols-4 min-[1160px]:grid-cols-5">
                 {list.map((item) => (
-                  <ListItem key={item.id} item={item} />
+                  <ListItem key={item.id} item={item} className="w-full" />
                 ))}
               </div>
               <Separator className="my-3" />
@@ -44,16 +45,16 @@ export default function ProductList({
   );
 }
 
-function ListItem({ item }: { item: ProcuctItem }) {
+function ListItem({ className, item }: { className?: string; item: ProcuctItem }) {
   const [imageUrl, setImageUrl] = React.useState<string>();
   React.useEffect(() => setImageUrl(item.imageUrl), []);
   const isFirstError = React.useRef(true);
 
   return (
-    <div className="w-42 hover:ring-2 hover:ring-green-400 [&>*]:mb-2">
-      <div test-id="image-wrapper" className="h-44 overflow-hidden">
+    <div className={cn("min-w-42 hover:ring-2 hover:ring-green-400 [&>*]:mb-2", className)}>
+      <div test-id="image-wrapper" className="aspect-square">
         <img
-          className="opacity-0 transition-opacity"
+          className="mx-auto opacity-0 transition-opacity"
           src={imageUrl}
           loading="lazy"
           onLoad={(event: React.SyntheticEvent<HTMLImageElement, Event>) => {

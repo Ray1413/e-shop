@@ -18,6 +18,13 @@ export default function PaginationBar({
   const pendingLocation = navigation.location;
   const currentLocation = useLocation();
   const isNavigating = Boolean(pendingLocation);
+  const divRef = React.useRef<HTMLDivElement>(null);
+  const [btnCount, setBtnCount] = React.useState(5);
+
+  React.useEffect(() => {
+    if (window.innerWidth > 420) setBtnCount(7);
+    if (divRef.current) divRef.current.style.visibility = "";
+  }, []);
 
   const pendingSearchParams = new URLSearchParams(pendingLocation?.search);
 
@@ -32,7 +39,7 @@ export default function PaginationBar({
   };
 
   const totalPage: number = pagination.totalPage;
-  const paginationButtonCount = 7;
+  const paginationButtonCount = btnCount;
   let paginationButtonList: number[] = [];
 
   if (totalPage <= paginationButtonCount) {
@@ -65,16 +72,9 @@ export default function PaginationBar({
   };
 
   return (
-    <div className="pt-2 pb-1 flex justify-between items-center">
-      <div className="text-sm">
-        <span>
-          Page: {currentPage} / {pagination.totalPage}
-        </span>
-        <span className="inline-block ml-3"></span>
-        <span>Total Product: {pagination.totalItem}</span>
-      </div>
-      <Pagination className="mx-0 w-auto">
-        <PaginationContent>
+    <div ref={divRef} className="pt-2 pb-1" style={{ visibility: "hidden" }}>
+      <Pagination className="mx-0 mb-4 w-auto justify-end">
+        <PaginationContent className="flex-wrap">
           <PaginationItem key={-1}>
             <PaginationPreviousBtn
               disabled={currentPage <= 1 || Boolean(isNavigating)}
@@ -127,6 +127,13 @@ export default function PaginationBar({
           </PaginationItem>
         </PaginationContent>
       </Pagination>
+      <div className="pr-4 text-sm text-end">
+        <span>
+          Page: {currentPage} / {pagination.totalPage}
+        </span>
+        <span className="inline-block ml-3"></span>
+        <span>Total Product: {pagination.totalItem}</span>
+      </div>
     </div>
   );
 }
