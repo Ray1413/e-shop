@@ -52,9 +52,9 @@ function ListItem({ className, item }: { className?: string; item: ProcuctItem }
 
   return (
     <div className={cn("min-w-42 hover:ring-2 hover:ring-green-400 [&>*]:mb-2", className)}>
-      <div test-id="image-wrapper" className="aspect-square">
+      <div test-id="image-wrapper" className="flex aspect-square">
         <img
-          className="mx-auto opacity-0 transition-opacity"
+          className="mx-auto opacity-0 transition-opacity object-contain"
           src={imageUrl}
           loading="lazy"
           onLoad={(event: React.SyntheticEvent<HTMLImageElement, Event>) => {
