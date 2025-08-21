@@ -13,12 +13,12 @@ export default function SearchBar() {
   const pathInfo = useMatch("/:firstSegment/*");
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const keyword = searchParams.get("keyword");
+  const keyword = searchParams.get("keyword") || "";
 
   const inputRef = React.useRef<HTMLInputElement>(null);
   React.useEffect(() => {
     if (inputRef && inputRef.current) {
-      inputRef.current.value = keyword || "";
+      inputRef.current.value = keyword;
     }
   }, [keyword]);
 
