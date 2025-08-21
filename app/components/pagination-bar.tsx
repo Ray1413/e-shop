@@ -5,6 +5,7 @@ import { cn } from "@/components/shadcn/lib/utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { Link, useLocation, useNavigation, useSearchParams } from "react-router";
 import type { Pagination as PaginationType } from "@/lib/.server/loader/product-list.loader";
+import { scrollToCategoryBreadcrumb } from "@/lib/utils/scrollToCategoryBreadcrumb";
 
 export default function PaginationBar({
   pagination,
@@ -64,10 +65,11 @@ export default function PaginationBar({
 
   const handlePaginationButtonClick = () => {
     // https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/#:~:text=Summary%20%C2%B7%20Use%20the%20getBoundingClientRect()%20method%20to,and%20its%20relative%20position%20to%20the%20viewport.
-    if (anchor.current && anchor.current.getBoundingClientRect().top <= 0) {
-      if (typeof window != "undefined") {
-        window.scrollTo(0, anchor.current.offsetTop - 68); // 68 -> The height of search bar
-      }
+    const breadcrumbAnchor = document.querySelectorAll(
+      "[data-testid=category-breadcrumb]",
+    )[0] as HTMLElement;
+    if (breadcrumbAnchor && breadcrumbAnchor.getBoundingClientRect().top <= 0) {
+      scrollToCategoryBreadcrumb();
     }
   };
 

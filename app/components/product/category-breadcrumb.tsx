@@ -54,7 +54,7 @@ export default function CategoryBreadcrumb({ categoryTree }: { categoryTree: Cat
   const breadcrumbList = getBreadcrumbList(flatCategoryTree, currentCategory);
 
   return (
-    <div className="py-1">
+    <div data-testid="category-breadcrumb" className="py-1">
       {breadcrumbList.length > 0 ? (
         <Breadcrumb>
           <BreadcrumbList className="text-base">
